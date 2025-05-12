@@ -10,7 +10,7 @@ interface SearchFormProps {
 const SearchForm = ({ initialGliphys }: SearchFormProps) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [giphys, setGiphys] = useState<GiphyObject>(initialGliphys);
-    const onSubmitHandle = async (e: React.MouseEvent<HTMLInputElement>) => {
+    const onSubmitHandle = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const response = await fetch(
             `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${process.env.NEXT_PUBLIC_GIPHY_API_KEY}&limit=10`
