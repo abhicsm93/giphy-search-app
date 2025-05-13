@@ -3,6 +3,7 @@ import { GiphyObject } from "@/lib/types/Giphy";
 import SearchForm from "@/app/SearchForm";
 import Link from "next/link";
 import { ReactElement } from "react";
+import { PageProps } from "@/.next/types/app/page";
 
 /**
  * Fetches Giphy data based on the provided search term.
@@ -23,26 +24,15 @@ async function fetchGiphys(searchTerm: string): Promise<GiphyObject> {
 }
 
 /**
- * Props for the Search component.
- * 
- * @typedef {Object} SearchProps
- * @property {Object} params - The dynamic route parameters.
- * @property {string} params.searchTerm - The search term from the route.
- */
-interface SearchProps {
-    params: {
-        searchTerm: string;
-    };
-}
-
-/**
  * Server component for displaying search results based on the search term.
  * 
- * @param {SearchProps} props - The props containing the dynamic route parameters.
+ * @param {Object} props - The props containing the dynamic route parameters.
+ * @param {Object} props.params - The dynamic route parameters.
+ * @param {string} props.params.searchTerm - The search term from the route.
  * @returns {ReactElement} - The React element for the search results page.
  */
-const Search = async ({ params }: SearchProps): Promise<ReactElement> => {
-    const { searchTerm } = await params;
+const Search = async (props:PageProps): Promise<ReactElement> => {
+    const { searchTerm } = await props.params;
     const catGiphys: GiphyObject = await fetchGiphys(searchTerm);
 
     return (
