@@ -1,5 +1,5 @@
 import SearchForm from "./SearchForm";
-import { GiphyObject, DataObject } from "@/lib/types/Giphy";
+import { GiphyObject } from "@/lib/types/Giphy";
 
 async function fetchGiphys() {
   const response = await fetch(

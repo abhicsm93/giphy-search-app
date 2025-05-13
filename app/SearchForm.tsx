@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { GiphyObject, DataObject } from "@/lib/types/Giphy";
-
+import Image from "next/image";
 interface SearchFormProps {
     initialGliphys: GiphyObject;
 }
@@ -37,7 +37,7 @@ const SearchForm = ({ initialGliphys }: SearchFormProps) => {
                         <h3 className="text-2xl font-semibold">
                             {item.title}
                         </h3>
-                        <img src={item.images.original.url} alt={item.title} />
+                        <Image src={item.images.original.url} alt={item.title} />
                     </div>
                 ))}
             </div>
