@@ -31,6 +31,7 @@ const Search = async ({ params }: SearchProps) => {
             <p>Share search results with others: <Link href="/search/[pid]" as={`search/${searchTerm}`}> {`http://localhost:3000/search/${searchTerm}`}</Link></p>
             <SearchForm initialGliphys={catGiphys} />
         </>
+        
     )
 };
 
