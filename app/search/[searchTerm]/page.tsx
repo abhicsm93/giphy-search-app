@@ -2,6 +2,7 @@
 import Head from "next/head";
 import { GiphyObject } from "@/lib/types/Giphy";
 import SearchForm from "@/app/SearchForm";
+import Link from "next/link";
 
 async function fetchGiphys(searchTerm: string) {
     const response = await fetch(
@@ -27,6 +28,7 @@ const Search = async ({ params }: SearchProps) => {
                 <title>Search</title>
             </Head>
             <h1 className="text-4xl">Search results for: {searchTerm}</h1>
+            <p>Share search results with others: <Link href="/search/[pid]" as={`search/${searchTerm}`}> {`http://localhost:3000/search/${searchTerm}`}</Link></p>
             <SearchForm initialGliphys={catGiphys} />
         </>
     )
